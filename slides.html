@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="extensions/goto/deck.goto.css">
   <link rel="stylesheet" href="extensions/menu/deck.menu.css">
   <link rel="stylesheet" href="extensions/status/deck.status.css">
+  <link rel="stylesheet" href="extensions/prettify/prettify.css">
 
   <!-- Theme CSS files -->
   <link rel="stylesheet" type="text/css" href="assets/css/main.css">
@@ -27,7 +28,7 @@
 
 </head>
 
-<body class="deck-container">
+<body class="deck-container" onload="prettyPrint()">
 
   <section class="slide" id="title-slide">
     <p><img src="assets/img/jasmineheader.png" style="margin-top:200px"></p>
@@ -84,7 +85,7 @@ describe("my_awesome_page", function() {
   describe("#change_status(status)", function() {
     it("should change the status message", function() {
       expect($('div#awesome').text()).toNotEqual("Awesome!");
-      Awesome.my_awesome_page.change_status('Awesome!');
+      change_status('Awesome!');
       expect($('div#awesome').text()).toEqual("Awesome!");
     });
   });
@@ -107,10 +108,8 @@ describe("my_awesome_page", function() {
 
     <h3>my_awesome_page.js</h3>
     <pre class="prettyprint">
-Awesome.my_awesome_page = {
-  change_status: function(status){
-    $('div#awesome').append(status);
-  }
+function change_status(status){
+  $('div#awesome').append(status);
 }
     </pre>
   </section>
